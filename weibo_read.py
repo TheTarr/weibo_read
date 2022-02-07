@@ -36,8 +36,8 @@ def processMblog(mblog):
     else:
         url = URL_ROOT + "/statuses/extend?id=%s" % (mblog['id'])
         text = requests.get(url).json()['data']['longTextContent']
-    return "%s\n%s" % (create_at, text)
-
+    # return "%s\n%s" % (create_at, text)
+    return text
 
 def cleanText(text):
     text = re.sub('<br.*?>', '\n', text)
@@ -52,7 +52,7 @@ def main():
         uid = sys.argv[1]
     for t in getCardList(uid):
         print(cleanText(t))
-        print("-"*20)
+        # print("-"*20)
 
 
 if __name__ == '__main__':
