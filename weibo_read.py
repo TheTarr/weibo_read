@@ -46,12 +46,14 @@ def cleanText(text):
 
 
 def main():
+    f = open('data_zte.txt', 'w', encoding='utf-8')
     if len(sys.argv) < 2:
         uid = input("uid:")
     else:
         uid = sys.argv[1]
     for t in getCardList(uid):
         print(cleanText(t))
+        f.write(cleanText(t)+'\n')
         # print("-"*20)
 
 
